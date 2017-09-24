@@ -1,6 +1,6 @@
 # Start with Ubuntu base image
 FROM ubuntu:16.04
-MAINTAINER Haixin Lee <docker@lihaixin.name>
+MAINTAINER Taras Remez <taras.remez@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN locale-gen en_US.UTF-8
@@ -30,7 +30,6 @@ RUN  echo $TZ > /etc/timezone && \
          dpkg-reconfigure --frontend noninteractive tzdata && \
          apt-get upgrade --yes
 
-# 删除不必要的软件和Apt缓存包列表
 RUN apt-get autoclean && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/*
